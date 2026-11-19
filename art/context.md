@@ -7,7 +7,8 @@ Fontes de arte editáveis. ← [CONTEXT.md](../CONTEXT.md)
 ## Estrutura
 ```
 art/
-  concept/      desenhos e referências (png/jpg/psd)
+  concept/      desenhos do usuário (versionados)
+    refs/       referências de terceiros: só locais, gitignored (não redistribuir no repo público)
   blender/      arquivos .blend (modelo, rig, animações)
   textures/     texturas fonte (psd, kra, substance) e exportadas (png)
 ```

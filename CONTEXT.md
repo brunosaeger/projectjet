@@ -2,7 +2,9 @@
 
 Mod de **Risk of Rain 2** que adiciona um **survivor 100% original** (personagem, kit, arte, lore).
 Nada pode ser copiado de personagens existentes, seja do RoR2 ou de outros jogos.
-O nome definitivo do survivor ainda não foi escolhido. "JetProject" é o nome provisório do mod.
+
+**Survivor: Jet**, piloto de jetpack com voo livre controlado pela mira, limitado por combustível.
+Conceito em [design/concept.md](design/concept.md), habilidades em [design/kit.md](design/kit.md).
 
 Este arquivo é o ponto de entrada. Ele traz as diretrizes globais e aponta para o `context.md` de cada módulo.
 **Antes de mexer em um módulo, leia o context.md dele.**
@@ -90,6 +92,7 @@ dotnet build                     # compila e copia para o perfil JetDev
 - [x] Framework base (Core, Content, Assets, Localization) compilando e com deploy automático
 - [x] Ferramentas de Blender headless
 - [ ] Integração Blender MCP (aguardando aprovação do usuário, ver tools/blender/context.md)
-- [ ] Conceito do survivor (design/)
+- [x] Repositório público: https://github.com/brunosaeger/projectjet
+- [x] Conceito do survivor: visual, emblema, passiva e as 4 skills (detalhes finos em design/kit.md)
 - [ ] Projeto Unity (unity/)
 - [ ] Primeiro survivor jogável com modelo provisório

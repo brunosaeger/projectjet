@@ -17,6 +17,9 @@ unity/[Uu]ser[Ss]ettings/
 unity/*.csproj
 unity/*.sln
 
+# Referências de terceiros (só locais, não redistribuir)
+art/concept/refs/
+
 # Blender
 *.blend1
 *.blend2
