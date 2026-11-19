@@ -1,0 +1,24 @@
+<Project>
+  <!--
+    Após o build, copia o plugin (DLL + PDB + Resources) para o perfil de teste do r2modman:
+    <perfil>\BepInEx\plugins\<AssemblyName>\
+  -->
+  <Target Name="DeployToR2Profile" AfterTargets="Build" Condition="'$(DeployToProfile)' == 'true'">
+    <PropertyGroup>
+      <PluginDeployDir>$(R2ProfileDir)\BepInEx\plugins\$(AssemblyName)</PluginDeployDir>
+    </PropertyGroup>
+
+    <Warning Condition="!Exists('$(R2ProfileDir)\BepInEx')"
+             Text="Perfil r2modman '$(R2ProfileName)' não encontrado em $(R2ProfileDir). Rode tools/setup-profile.ps1. Deploy ignorado." />
+
+    <ItemGroup Condition="Exists('$(R2ProfileDir)\BepInEx')">
+      <_DeployBinaries Include="$(TargetDir)$(AssemblyName).dll;$(TargetDir)$(AssemblyName).pdb" />
+      <_DeployResources Include="$(TargetDir)Resources\**\*" />
+    </ItemGroup>
+
+    <Copy Condition="Exists('$(R2ProfileDir)\BepInEx')" SourceFiles="@(_DeployBinaries)" DestinationFolder="$(PluginDeployDir)" SkipUnchangedFiles="true" />
+    <Copy Condition="Exists('$(R2ProfileDir)\BepInEx')" SourceFiles="@(_DeployResources)" DestinationFiles="@(_DeployResources->'$(PluginDeployDir)\Resources\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+
+    <Message Condition="Exists('$(R2ProfileDir)\BepInEx')" Importance="high" Text="[Deploy] $(AssemblyName) -> $(PluginDeployDir)" />
+  </Target>
+</Project>

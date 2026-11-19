@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>JetProject</AssemblyName>
+    <RootNamespace>JetProject</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <IsRoR2Plugin>true</IsRoR2Plugin>
+  </PropertyGroup>
+
+  <!-- Pacotes: só em tempo de compilação, nada é empacotado junto do plugin -->
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Assemblies do jogo, referenciados direto da instalação (sempre batem com a versão instalada) -->
+  <ItemGroup>
+    <Reference Include="RoR2" Publicize="true">
+      <HintPath>$(RoR2Managed)\RoR2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="LegacyResourcesAPI"><HintPath>$(RoR2Managed)\LegacyResourcesAPI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="HGCSharpUtils"><HintPath>$(RoR2Managed)\HGCSharpUtils.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="HGUnityUtils"><HintPath>$(RoR2Managed)\HGUnityUtils.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="KinematicCharacterController"><HintPath>$(RoR2Managed)\KinematicCharacterController.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime"><HintPath>$(RoR2Managed)\com.unity.multiplayer-hlapi.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.Addressables"><HintPath>$(RoR2Managed)\Unity.Addressables.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.ResourceManager"><HintPath>$(RoR2Managed)\Unity.ResourceManager.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.TextMeshPro"><HintPath>$(RoR2Managed)\Unity.TextMeshPro.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.Postprocessing.Runtime"><HintPath>$(RoR2Managed)\Unity.Postprocessing.Runtime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="$(RoR2Managed)\UnityEngine*.dll" Private="false" />
+  </ItemGroup>
+
+  <!-- Dados (idiomas, AssetBundles) vão para a saída e são copiados pelo deploy -->
+  <ItemGroup>
+    <None Include="Resources\**\*" Exclude="Resources\**\context.md" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

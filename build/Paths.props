@@ -1,0 +1,18 @@
+<Project>
+  <!--
+    Caminhos da máquina de desenvolvimento.
+    Para sobrescrever em outra máquina, crie build/Paths.user.props (ignorado pelo git)
+    redefinindo apenas as propriedades necessárias.
+  -->
+  <PropertyGroup>
+    <RoR2Dir Condition="'$(RoR2Dir)' == ''">D:\SteamLibrary\steamapps\common\Risk of Rain 2</RoR2Dir>
+    <RoR2Managed>$(RoR2Dir)\Risk of Rain 2_Data\Managed</RoR2Managed>
+
+    <R2ProfileName Condition="'$(R2ProfileName)' == ''">JetDev</R2ProfileName>
+    <R2ProfilesRoot Condition="'$(R2ProfilesRoot)' == ''">$(APPDATA)\r2modmanPlus-local\RiskOfRain2\profiles</R2ProfilesRoot>
+    <R2ProfileDir>$(R2ProfilesRoot)\$(R2ProfileName)</R2ProfileDir>
+
+    <!-- false desliga a cópia automática do build para o perfil de teste -->
+    <DeployToProfile Condition="'$(DeployToProfile)' == ''">true</DeployToProfile>
+  </PropertyGroup>
+</Project>
