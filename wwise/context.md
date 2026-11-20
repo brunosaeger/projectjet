@@ -21,6 +21,8 @@ wwise/
 ## Fluxo para adicionar/alterar um som
 1. Coloque o áudio fonte em `art/audio/source/` (qualquer formato que o ffmpeg leia).
 2. Adicione/edite a entrada em `sounds.json`: `{ "name": "Jet_<Skill>_<Evento>", "source": "...", "volumeDb": 0 }`.
+   Para **loop**, acrescente `"loop": true`: o som fica em loop infinito e o script cria também o evento
+   `Stop_<name>` (o código toca `Play_` ao começar e `Stop_` ao terminar, no mesmo GameObject).
 3. Rode `./tools/audio/build-soundbank.ps1` (sem abrir o Wwise).
 4. Adicione a constante `Play_<name>` em `Characters/<Survivor>/<Survivor>Sounds.cs` e toque com `Util.PlaySound`.
 
@@ -37,6 +39,7 @@ Assim, fontes gravadas baixas ou altas entram no mesmo nível. O `volumeDb` do m
 | Actor-Mixer `JetProject` | Saída no bus Character, 3D (posição), atenuação ligada | Som posicional como os sons vanilla |
 | Attenuation `JetProject_Default` | RadiusMax 100 m | Alcance parecido com tiros vanilla |
 | Eventos `Play_<nome>` | Uma ação Play por som | Nome previsível para o código |
+| Eventos `Stop_<nome>` | Só para sons com `"loop": true`; ação Stop (ActionType 2) no som | Parar loops |
 | SoundBank `JetProject` | Inclui todos os eventos (com mídia embutida) | Um único `.bnk` autossuficiente |
 
 ## Regras

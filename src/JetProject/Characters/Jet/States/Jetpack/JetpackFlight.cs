@@ -1,5 +1,6 @@
 using EntityStates;
 using JetProject.Characters.Jet.Components;
+using JetProject.Characters.Jet.Movement;
 using RoR2;
 using UnityEngine;
 
@@ -28,6 +29,13 @@ namespace JetProject.Characters.Jet.States.Jetpack
         /// <summary>Voo em pausa por outro estado (ver <see cref="IPausesJetpack"/>): não controla o movimento.</summary>
         public bool IsPaused { get; private set; }
 
+        /// <summary>
+        /// A jetpack está voando agora (máquina "Jetpack" em voo e sem pausa)? Usado pelos visuais da jetpack.
+        /// Nos clientes remotos a pausa não é calculada (só na autoridade), então lá conta como voando.
+        /// </summary>
+        public static bool IsActive(EntityStateMachine jetpackMachine) =>
+            jetpackMachine && jetpackMachine.state is JetpackFlight flight && !flight.IsPaused;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -35,6 +43,12 @@ namespace JetProject.Characters.Jet.States.Jetpack
             _bodyMachine = EntityStateMachine.FindByCustomName(gameObject, JetStateMachines.Body);
             _weaponMachine = EntityStateMachine.FindByCustomName(gameObject, JetStateMachines.Weapon);
             SetFlightGranted(true);
+
+            // Sons em todos os clientes (o estado é sincronizado). O loop para no OnExit.
+            Util.PlaySound(JetSounds.JetpackIgnite, gameObject);
+            Util.PlaySound(JetSounds.JetpackLoop, gameObject);
+            if (isAuthority && _fuel)
+                _fuel.LowFuelReached += OnLowFuel;
 
             if (isAuthority && characterMotor)
             {
@@ -75,8 +89,14 @@ namespace JetProject.Characters.Jet.States.Jetpack
         {
             SetFlightGranted(false);
             MotorMoveDirection = Vector3.zero;
+            Util.PlaySound(JetSounds.JetpackLoopStop, gameObject);
+            if (_fuel)
+                _fuel.LowFuelReached -= OnLowFuel;
             base.OnExit();
         }
+
+        /// <summary>Aviso local (só o dono ouve): o combustível é simulado apenas na autoridade.</summary>
+        private void OnLowFuel() => Util.PlaySound(JetSounds.JetpackLowFuel, gameObject);
 
         public override InterruptPriority GetMinimumInterruptPriority() => InterruptPriority.Any;
 
@@ -116,28 +136,11 @@ namespace JetProject.Characters.Jet.States.Jetpack
 
             // Regra de design: itens de velocidade escalam SÓ o horizontal (CruiseSpeed).
             // A subida é fixa (ClimbSpeed) e NÃO deve usar moveSpeed.
-            Vector3 target = horizontal * CruiseSpeed() + Vector3.up * JetConfig.ClimbSpeed.Value;
+            Vector3 target = horizontal * FlightMotor.CruiseSpeed(characterBody) + Vector3.up * JetConfig.ClimbSpeed.Value;
             return target * BoostFactor();
         }
 
-        /// <summary>
-        /// O motor puxa a velocidade em direção a moveDirection × walkSpeed (CharacterMotor.PreMove).
-        /// Alinhamos esse alvo com a velocidade atual para que só a nossa aceleração atue.
-        /// </summary>
-        private void SyncMotorDirection()
-        {
-            float walkSpeed = Mathf.Max(characterMotor.walkSpeed, 0.01f);
-            MotorMoveDirection = characterMotor.velocity / walkSpeed;
-        }
-
-        /// <summary>Velocidade de movimento (com itens) sem o bônus de sprint, × multiplicador de voo.</summary>
-        private float CruiseSpeed()
-        {
-            float moveSpeed = characterBody.moveSpeed;
-            if (characterBody.isSprinting && characterBody.sprintingSpeedMultiplier > 0f)
-                moveSpeed /= characterBody.sprintingSpeedMultiplier;
-            return moveSpeed * JetConfig.FlightSpeedMultiplier.Value;
-        }
+        private void SyncMotorDirection() => MotorMoveDirection = FlightMotor.MoveDirectionHolding(characterMotor);
 
         private float BoostFactor()
         {
@@ -147,22 +150,6 @@ namespace JetProject.Characters.Jet.States.Jetpack
             return Mathf.Lerp(JetConfig.BoostSpeedMultiplier.Value, 1f, fixedAge / duration);
         }
 
-        /// <summary>Idempotente: só muda os contadores do motor quando o estado concedido muda.</summary>
-        private void SetFlightGranted(bool granted)
-        {
-            if (!characterMotor || _granted == granted)
-                return;
-            _granted = granted;
-
-            int delta = granted ? 1 : -1;
-
-            var gravity = characterMotor.gravityParameters;
-            gravity.channeledAntiGravityGranterCount += delta;
-            characterMotor.gravityParameters = gravity;
-
-            var flight = characterMotor.flightParameters;
-            flight.channeledFlightGranterCount += delta;
-            characterMotor.flightParameters = flight;
-        }
+        private void SetFlightGranted(bool granted) => FlightMotor.SetGranted(characterMotor, ref _granted, granted);
     }
 }

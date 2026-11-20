@@ -55,7 +55,8 @@ Este arquivo é o ponto de entrada. Ele traz as diretrizes globais e aponta para
 | ├ Audio | [Framework/Audio/context.md](src/JetProject/Framework/Audio/context.md) | Registro dos soundbanks Wwise do mod |
 | ├ Projectiles | [Framework/Projectiles/context.md](src/JetProject/Framework/Projectiles/context.md) | Clonagem de projéteis, arco, explosão em área |
 | ├ Interactables | [Framework/Interactables/context.md](src/JetProject/Framework/Interactables/context.md) | Spawn de baús e outros interagíveis |
-| └ Commands | [Framework/Commands/context.md](src/JetProject/Framework/Commands/context.md) | Comandos de teste no chat (`.help`) |
+| ├ Commands | [Framework/Commands/context.md](src/JetProject/Framework/Commands/context.md) | Comandos de teste no chat (`.help`) |
+| └ Effects | [Framework/Effects/context.md](src/JetProject/Framework/Effects/context.md) | Cópias modificadas de efeitos visuais do jogo |
 | Characters | [src/JetProject/Characters/context.md](src/JetProject/Characters/context.md) | Survivors do mod |
 | └ Jet | [Characters/Jet/context.md](src/JetProject/Characters/Jet/context.md) | O survivor Jet: passiva, skills, states, config |
 | Resources | [src/JetProject/Resources/context.md](src/JetProject/Resources/context.md) | Dados distribuídos com a DLL (idiomas, bundles) |
@@ -127,4 +128,6 @@ dotnet build                     # compila e copia para o perfil JetDev
 - [x] Primária e passiva aprovadas pelo usuário (2026-11-20)
 - [x] Secundária (UES Safe Travels Supplies): sinalizador em arco, mira no ar, poça de fogo, feixe e baús
 - [x] Sons próprios via Wwise (pipeline automatizado) e comandos de teste no chat (`.help`)
-- [ ] Utilitária, Especial
+- [x] Utilitária (DO A BARREL ROLL! // ACE THE SKIES!)
+- [x] Visuais e sons da jetpack (jatos com chama piscando, fumaça de chão, ignição/loop/aviso de combustível)
+- [ ] Especial

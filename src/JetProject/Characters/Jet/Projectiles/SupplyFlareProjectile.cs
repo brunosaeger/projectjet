@@ -24,7 +24,7 @@ namespace JetProject.Characters.Jet.Projectiles
             ProjectileFactory.MakeArcing(prefab, JetConfig.SecondaryProjectileSpeed.Value, Lifetime);
             ProjectileFactory.Scale(prefab, JetConfig.SecondaryProjectileScale.Value, JetConfig.SecondaryProjectileScale.Value);
             // Projétil (dano base = SecondaryDamageCoefficient): acerto direto N× 100%; área 1× AreaMultiplier, sem o alvo direto.
-            ProjectileFactory.MakeExploding(prefab, JetConfig.SecondaryBlastRadius.Value, JetAssets.SupplyFlareExplosionEffect, Lifetime,
+            ProjectileFactory.MakeExploding(prefab, JetConfig.SecondaryBlastRadius.Value, JetAssets.FireExplosionEffect, Lifetime,
                 directHitCount: JetConfig.SecondaryDirectHitCount.Value,
                 directDamageMultiplier: 1f,
                 areaDamageMultiplier: JetConfig.SecondaryAreaDamageCoefficient.Value / JetConfig.SecondaryDamageCoefficient.Value,

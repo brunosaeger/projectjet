@@ -9,6 +9,7 @@ Scripts de desenvolvimento. Não são distribuídos com o mod. ← [CONTEXT.md](
 | `profile-mods.txt` | Lista de mods do perfil: dependências de runtime (R2API) e ferramentas de dev (DebugToolkit) |
 | `launch.ps1` | Abre o RoR2 modado com o perfil (via Steam + args do Doorstop 4). `-Build` compila antes |
 | `blender/` | Automação do Blender → [blender/context.md](blender/context.md) |
+| `assets/inspect-particles.ps1` | Resume os ParticleSystems de um prefab (vida, tamanho, cor) para identificar qual peça de um efeito é qual |
 | `assets/inspect-bundle.ps1` | Inspeciona prefabs dentro dos asset bundles do jogo (componentes, campos, filhos) via UnityPy/uv. Use quando o código decompilado não mostra os VALORES (efeitos, sons, tremor, raios) |
 | `audio/build-soundbank.ps1` | Lê `wwise/sounds.json`, monta o projeto Wwise via WAAPI, gera e valida o `.bnk` e copia para `Resources/SoundBanks`. Requer Wwise 2023.1.4 + ffmpeg. Ver [wwise/context.md](../wwise/context.md) |
 

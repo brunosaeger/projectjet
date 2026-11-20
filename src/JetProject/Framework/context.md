@@ -24,6 +24,7 @@ O teste: *"esse código serviria igualzinho para um segundo survivor totalmente 
 | Projectiles | `ProjectileFactory` (estático) | [Projectiles/context.md](Projectiles/context.md) |
 | Interactables | `InteractableSpawning` (estático) | [Interactables/context.md](Interactables/context.md) |
 | Commands | `ChatCommandRegistry` (serviço) | [Commands/context.md](Commands/context.md) |
+| Effects | `EffectFactory` (estático) | [Effects/context.md](Effects/context.md) |
 
 ## Serviço ou helper estático?
 - **Tem estado compartilhado** (cache, registro, ciclo de vida)? → **serviço** num `IModule`, acessado por `ModContext.Resolve`.

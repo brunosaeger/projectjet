@@ -19,7 +19,7 @@ namespace JetProject.Characters.Jet
 
         /// <summary>Projétil-base clonado para o sinalizador (provisório: firebolt da Artificer).</summary>
         public static string SupplyFlareBaseProjectileKey => RoR2_Base_Mage.MageFireboltBasic_prefab;
-        public static GameObject SupplyFlareExplosionEffect { get; private set; }
+        public static GameObject FireExplosionEffect { get; private set; }
 
         /// <summary>Base da poça de fogo da secundária: zona de dano do Molotov.</summary>
         public static string SupplyFireZoneBaseKey => RoR2_DLC1_Molotov.MolotovProjectileDotZone_prefab;
@@ -39,7 +39,7 @@ namespace JetProject.Characters.Jet
             HandCannonTracer = GameAssets.Load<GameObject>(RoR2_Base_Bandit2.TracerBanditPistol_prefab);
             HandCannonPiercingTracer = GameAssets.Load<GameObject>(RoR2_DLC1_Railgunner.TracerRailgunLight_prefab);
 
-            SupplyFlareExplosionEffect = GameAssets.Load<GameObject>(RoR2_Base_IgniteOnKill.IgniteExplosionVFX_prefab);
+            FireExplosionEffect = GameAssets.Load<GameObject>(RoR2_Base_IgniteOnKill.IgniteExplosionVFX_prefab);
             SupplyFlareAimCrosshair = GameAssets.Load<GameObject>(RoR2_Base_Captain.CaptainAirstrikeCrosshair_prefab);
             SupplyFlareAreaIndicator = GameAssets.Load<GameObject>(RoR2_Base_Treebot.TreebotMortarAreaIndicator_prefab);
 

@@ -97,7 +97,7 @@ namespace JetProject.Characters.Jet.States.Weapon
 
             var body = EntityStateMachine.FindByCustomName(gameObject, JetStateMachines.Body);
             if (body)
-                body.SetInterruptState(new SupplyFlareBackDodge(), InterruptPriority.Skill);
+                body.SetInterruptState(new JetDodge { Direction = JetDodge.AwayFromAim(inputBank, transform), FollowFullDirection = true }, InterruptPriority.Skill);
         }
 
         /// <summary>Todos os clientes: feedback do disparo.</summary>

@@ -5,10 +5,10 @@
 			<ChildrenList>
 				<Event Name="Play_Jet_HandCannon_Fire" ID="{BC8CB7F3-8757-4E11-8721-AE20A291B5C5}">
 					<ChildrenList>
-						<Action Name="" ID="{4032F8F0-6148-42C2-A349-E942FDAE65CC}" ShortID="1071566036">
+						<Action Name="" ID="{37F86374-08BB-4436-A569-F1493E4AEEBD}" ShortID="687907358">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Jet_HandCannon_Fire" ID="{E1CF8B91-237A-485E-9480-BB31557260AF}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+									<ObjectRef Name="Jet_HandCannon_Fire" ID="{B633F2C5-77A1-4ACA-A47D-A5A6F3DE6DD7}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -16,10 +16,57 @@
 				</Event>
 				<Event Name="Play_Jet_HandCannon_FirePiercing" ID="{85D74463-3263-4416-BD45-C5A79456C4EA}">
 					<ChildrenList>
-						<Action Name="" ID="{D7E1E40D-9830-4903-A24A-B7D34B419C8F}" ShortID="827037240">
+						<Action Name="" ID="{3D596DD3-87BF-451A-9698-DE7FC04ACF44}" ShortID="691597778">
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="Jet_HandCannon_FirePiercing" ID="{25517222-3678-4A09-A1E1-2F3ABB2ABD45}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+									<ObjectRef Name="Jet_HandCannon_FirePiercing" ID="{EC9F9A77-4CF7-4EAF-8F51-E4E29666E6BF}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Jet_Jetpack_Ignite" ID="{FCE8413F-8525-4CD7-8778-FF5AAD682C52}">
+					<ChildrenList>
+						<Action Name="" ID="{6B188001-E938-4EE5-96B3-987A86D7D958}" ShortID="1263579">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jet_Jetpack_Ignite" ID="{B9477027-C29B-4ADA-9086-04C633E2FDFC}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Jet_Jetpack_LowFuel" ID="{57721B0E-1CE1-4689-8FDF-9D7578E86B7F}">
+					<ChildrenList>
+						<Action Name="" ID="{98E02011-1A3C-4077-A57C-0689D19FEC23}" ShortID="829756032">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jet_Jetpack_LowFuel" ID="{6ED7482D-9CF3-4530-9235-C617AB05D106}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Jet_Jetpack_Loop" ID="{515E73C4-5733-4FD5-83C3-704E2FE89A33}">
+					<ChildrenList>
+						<Action Name="" ID="{55CAB5D8-AF1F-4974-8D8B-2A040A2F7296}" ShortID="264783762">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jet_Jetpack_Loop" ID="{78B33A44-21EB-41D2-8741-3ECE605BF2CA}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Stop_Jet_Jetpack_Loop" ID="{8143B891-17F9-4663-94A5-15A9EBD5A226}">
+					<ChildrenList>
+						<Action Name="" ID="{2C0D1030-8854-4A00-B113-57B368FA15FE}" ShortID="259752899">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jet_Jetpack_Loop" ID="{78B33A44-21EB-41D2-8741-3ECE605BF2CA}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

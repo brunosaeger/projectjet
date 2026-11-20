@@ -1,5 +1,6 @@
 using EntityStates;
 using JetProject.Characters.Jet.Components;
+using JetProject.Characters.Jet.Effects;
 using JetProject.Characters.Jet.Projectiles;
 using JetProject.Characters.Jet.Systems;
 using JetProject.Characters.Jet.Skills;
@@ -37,6 +38,8 @@ namespace JetProject.Characters.Jet
             JetAssets.Load();
             var content = context.Resolve<ContentRegistry>();
 
+            JetpackGroundSmokeEffect.Create(content);
+            JetpackThrusterEffect.Create();
             SupplyFireZoneProjectile.Create(content);
             SupplyFlareProjectile.Create(content);
             SupplyBeaconProjectile.Create(content);
@@ -75,6 +78,8 @@ namespace JetProject.Characters.Jet
 
             // Passiva Jetpack
             bodyObject.AddComponent<JetpackFuel>();
+            bodyObject.AddComponent<JetpackGroundSmoke>();
+            bodyObject.AddComponent<JetpackThrusters>();
             bodyObject.AddComponent<ResourceMeterHud>();
             StateMachineSetup.SetMainState(bodyObject, JetStateMachines.Body, typeof(JetCharacterMain));
             StateMachineSetup.Add(bodyObject, JetStateMachines.Jetpack, typeof(Idle), typeof(Idle));
@@ -89,9 +94,10 @@ namespace JetProject.Characters.Jet
                 skillDescriptionToken = JetTokens.PassiveDescription,
             };
 
-            // Skills próprias: primária e secundária. Utilitária/especial ainda são as do Commando (provisório).
+            // Skills próprias: primária, secundária e utilitária. Especial ainda é a do Commando (provisório).
             SkillFactory.AssignFamily(skillLocator.primary, JetSkills.CreatePrimaryFamily(content));
             SkillFactory.AssignFamily(skillLocator.secondary, JetSkills.CreateSecondaryFamily(content));
+            SkillFactory.AssignFamily(skillLocator.utility, JetSkills.CreateUtilityFamily(content));
 
             return bodyObject;
         }

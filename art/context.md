@@ -16,7 +16,8 @@ art/
 
 ## Autoria
 Tudo em `art/` (exceto `concept/refs/`, que não é versionado) é **produção original do usuário**, incluindo
-os desenhos de conceito e os áudios (`audio/source/normaldeagle.mp3`, `audio/source/newdeagle.mp3`).
+os desenhos de conceito e os áudios (`audio/source/normaldeagle.mp3`, `newdeagle.mp3`, `jetinitiate.mp3`,
+`nofuel.mp3`, `jetfly.mp3`).
 Ao adicionar um asset de terceiros, registre aqui a fonte e a licença antes de versionar.
 
 ## Convenções técnicas (alvo RoR2)
@@ -26,6 +27,9 @@ Ao adicionar um asset de terceiros, registre aqui a fonte e a licença antes de 
 - **Orçamento:** ~8k a 15k triângulos para o survivor. Texturas 1024 a 2048 px.
 - **Rig:** um armature, ossos de deformação com nomes claros (`spine`, `upperArm.L`...). Sem leaf bones.
 - **Nomes:** inglês, PascalCase para objetos (`SurvivorBody`, `SurvivorWeapon`), sem espaços nem acentos.
+- **Pontos de efeito (obrigatórios):** objetos vazios (empties) nas saídas da jetpack chamados **`LeftJet`** e **`RightJet`**
+  (o código prende os jatos neles). Outros pontos que o código usa: `MuzzleRight` (pistola), `MuzzleLeft` (sinalizador).
+  No Unity, esses pontos entram no `ChildLocator` do modelo com os mesmos nomes.
 - **Animações:** uma Action por animação, nomes no padrão `Idle`, `Run`, `Sprint`, `Jump`, `Primary1`...
 
 ## Pipeline

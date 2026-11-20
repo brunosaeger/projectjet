@@ -10,6 +10,22 @@
       "name": "Jet_HandCannon_FirePiercing",
       "source": "art/audio/source/newdeagle.mp3",
       "volumeDb": 3
+    },
+    {
+      "name": "Jet_Jetpack_Ignite",
+      "source": "art/audio/source/jetinitiate.mp3",
+      "volumeDb": 0
+    },
+    {
+      "name": "Jet_Jetpack_LowFuel",
+      "source": "art/audio/source/nofuel.mp3",
+      "volumeDb": 0
+    },
+    {
+      "name": "Jet_Jetpack_Loop",
+      "source": "art/audio/source/jetfly.mp3",
+      "volumeDb": 0,
+      "loop": true
     }
   ]
 }

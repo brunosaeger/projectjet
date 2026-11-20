@@ -6,7 +6,7 @@
 **Ao mudar um valor padrão no código, incremente `DefaultsRevision` em `JetConfig`.** Senão, quem já tem o `.cfg`
 continua com o valor antigo (o BepInEx persiste os valores). A revisão nova reseta o arquivo para os padrões.
 
-## Valores atuais (revisão 5)
+## Valores atuais (revisão 6)
 | Parâmetro | Valor | Nota |
 |---|---|---|
 | Velocidade horizontal de voo | 2,2 × velocidade de movimento | Commando anda a 7 m/s → ~15 m/s voando. Usuário aprovou o feeling |
@@ -37,6 +37,14 @@ continua com o valor antigo (o BepInEx persiste os valores). A revisão nova res
 | Secundária: poça de fogo | 200%/s, proc 0,5 (= 50% de chance de Burn por tick), 4 s, metade do tamanho da do Molotov | Provisórios: duração e tamanho |
 | Secundária: volume do disparo | Som vanilla tocado 2× (≈ +6 dB) | `FireSoundLayers` |
 | Primária: volume | +3 dB nos dois tiros (`wwise/sounds.json`) | "Um pouco" mais alto |
+| Utilitária: cargas / recarga | 2 / 6 s | Mobilidade |
+| Utilitária: explosão das rolagens | 600%, Burn, raio 7 m | Raio provisório |
+| Utilitária: distância das rolagens | 1,25× o Tactical Dive | "Um pouco maior" |
+| Ace the Skies: velocidade | 2,5× o voo | |
+| Ace: início da queima | 1,5 s segurando | |
+| Ace: queima | Gasto no ritmo do voo (×1); explosão 1200–3600% conforme o tanque queimado (raio 14 m) | Raio provisório |
+| Ace: penalidade | 10 s sem cargas e sem jetpack; Burn em si (50% do dano base) | |
+| Ace: quique | 14 m/s para cima, dash para trás | Provisório |
 | Secundária: chance de baú | 0,5% (qualquer não lendário) + 0,25% (lendário), 1 sorteio por disparo | Ajustável ao vivo: `.chestluck` / `.legenchestluck` |
 | Primária: dano do 3º tiro | 2 acertos × 250% (= 500%) | Cada acerto < 400%: não ativa Kjaro's/Runald's Band. Trava no código: máx. 399% por acerto |
 | Primária: volume dos tiros | 0 dB (em `wwise/sounds.json`) | Sons próprios via Wwise, no bus Character do jogo |
@@ -64,6 +72,14 @@ continua com o valor antigo (o BepInEx persiste os valores). A revisão nova res
 | 2026-11-20 | 5 | Projétil 1,6× maior; sons: fogos no disparo, aviso e queda do Captain no feixe | Decisão do usuário |
 | 2026-11-20 | 5 | No ar, a secundária faz o dash para trás do Commando em vez do empurrão | Decisão do usuário |
 | 2026-11-20 | 5 | No ar, a secundária vira mira (segurar) com queda lenta; dispara + dash ao soltar | Decisão do usuário |
+| 2026-11-20 | 5 | Chama vermelha da jetpack separada: intervalo 0,05–0,2 s e tamanho 60–140% aleatórios (pisca) | "Estava estática demais" |
+| 2026-11-20 | 6 | Ace: queima no ritmo normal do voo (antes: tanque em 1,5 s) | Decisão do usuário |
+| 2026-11-20 | 6 | M2 no ar: dash na direção oposta à mira em 3D (mirar para baixo = subir) | Ajuda a se manter no ar |
+| 2026-11-20 | 6 | Utilitária reformulada: DO A BARREL ROLL! // ACE THE SKIES! (valores acima) | Decisão do usuário |
+| 2026-11-20 | 6 | Chama: intervalo 0,12–0,4 s (mínimo acima da vida de 0,1 s = sempre há um instante apagado) | "Ainda muito estático" |
+| 2026-11-20 | 5 | Sons da jetpack: ignição, loop de voo, aviso de combustível abaixo de 25% | Sons do usuário |
+| 2026-11-20 | 5 | Jatos do Commando em loop (a cada 0,08 s) enquanto a jetpack voa, sem tremor | Decisão do usuário: placeholder da jetpack |
+| 2026-11-20 | 5 | Fumaça da Bandit sob a jetpack perto do chão (6 m, a cada 0,12 s, 60% do tamanho, tremor 15%) | Decisão do usuário |
 | 2026-11-20 | 5 | Queda do baú: impacto completo do Orbital Probe (poeira, tremor, som) e baú exatamente no ponto da morte | Decisão do usuário |
 | 2026-11-20 | 5 | Gasoline: +15% de capacidade total do tanque por stack | Decisão do usuário |
 | 2026-11-20 | 5 | Hopoo Feather: deixa de dar capacidade (+1 s) e passa a acelerar a recarga (+20%/stack) | Decisão do usuário: pena = recarga, Gasoline = capacidade |

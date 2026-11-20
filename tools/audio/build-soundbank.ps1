@@ -112,8 +112,24 @@ try {
         }
     })
     Invoke-Waapi "ak.wwise.core.audio.import" @{ importOperation = "replaceExisting"; default = @{ importLanguage = "SFX" }; imports = $imports } | Out-Null
+    $loopNames = @($manifest.sounds | Where-Object { $_.loop } | ForEach-Object { $_.name })
     foreach ($sound in $manifest.sounds) {
-        Invoke-Waapi "ak.wwise.core.object.setProperty" @{ object = "$mixerPath\$($sound.name)"; property = "Volume"; value = [double]$sound.volumeDb } | Out-Null
+        $soundPath = "$mixerPath\$($sound.name)"
+        Invoke-Waapi "ak.wwise.core.object.setProperty" @{ object = $soundPath; property = "Volume"; value = [double]$sound.volumeDb } | Out-Null
+
+        # Loop: som em loop infinito + evento Stop_<nome> (ação Stop = 2) para o código parar o loop.
+        $isLoop = [bool]$sound.loop
+        Invoke-Waapi "ak.wwise.core.object.setProperty" @{ object = $soundPath; property = "IsLoopingEnabled"; value = $isLoop } | Out-Null
+        if ($isLoop) {
+            Invoke-Waapi "ak.wwise.core.object.setProperty" @{ object = $soundPath; property = "IsLoopingInfinite"; value = $true } | Out-Null
+            Invoke-Waapi "ak.wwise.core.object.create" @{
+                parent         = $eventsPath
+                type           = "Event"
+                name           = "Stop_$($sound.name)"
+                onNameConflict = "replace"
+                children       = @(@{ type = "Action"; name = ""; "@ActionType" = 2; "@Target" = $soundPath })
+            } | Out-Null
+        }
     }
 
     foreach ($child in Get-Children $mixerPath) {
@@ -123,7 +139,11 @@ try {
         }
     }
     foreach ($evt in Get-Children $eventsPath) {
-        if ($evt.type -eq "Event" -and $names -notcontains ($evt.name -replace '^Play_', '')) {
+        if ($evt.type -ne "Event") { continue }
+        $target = $evt.name -replace '^(Play|Stop)_', ''
+        $orphan = $names -notcontains $target
+        $staleStop = $evt.name -like "Stop_*" -and $loopNames -notcontains $target
+        if ($orphan -or $staleStop) {
             Invoke-Waapi "ak.wwise.core.object.delete" @{ object = $evt.path } | Out-Null
             Write-Host "Evento removido: $($evt.name)"
         }
@@ -151,4 +171,5 @@ $dest = Join-Path $root "src\JetProject\Resources\SoundBanks"
 New-Item -ItemType Directory -Force $dest | Out-Null
 Copy-Item $generated (Join-Path $dest "$bankName.bnk") -Force
 Write-Host "Soundbank '$bankName' (v$version, $([math]::Round($bytes.Length / 1KB)) KB) -> $dest"
-Write-Host "Eventos: $(($manifest.sounds | ForEach-Object { "Play_$($_.name)" }) -join ', ')"
+$events = foreach ($s in $manifest.sounds) { "Play_$($s.name)"; if ($s.loop) { "Stop_$($s.name)" } }
+Write-Host "Eventos: $($events -join ', ')"

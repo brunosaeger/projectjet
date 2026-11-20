@@ -20,6 +20,9 @@ para que voar seja uma decisão e não um estado permanente.
 | Fim | Soltar o espaço **ou** combustível = 0 |
 | Religar | Pode religar no mesmo pulo, **quantas vezes quiser, enquanto houver combustível** |
 | Recurso | Combustível, com medidor ao lado do personagem (estilo Void Fiend) |
+| Sons | **Ignição** toda vez que liga; **loop** enquanto voa (para ao desligar ou pausar o estado); **aviso** quando o combustível cai abaixo de 25% (só o próprio jogador ouve) |
+| Visual: jatos | Enquanto voa, **jatos de propulsão** saem das costas em loop rápido (placeholder: jatos do Tactical Slide/Dive do Commando) |
+| Visual: fumaça | Voando **perto do chão** (até ~6 m), a **fumaça da Smokebomb da Bandit** sai em loop rápido no chão logo abaixo, um pouco menor que a original, com **tremor de tela leve** e **sem som** (por enquanto) |
 | Recarga | Começa após **~1 s sem voar**; **mesma taxa no chão e no ar** |
 | Velocidade | Horizontal (frente/lados) **escala 100% com velocidade de movimento** (Energy Drink, Goat Hoof etc.). A **subida é fixa**: itens **não** a aceleram |
 | Hopoo Feather | **Não dá pulos extras.** Cada pena **acelera a recarga** do combustível (+20% por stack, linear) |
@@ -51,7 +54,7 @@ A chance é baixa de propósito: é um momento de surpresa, não uma fonte de ec
 | Ação | Dispara um **sinalizador em arco** (cai com a gravidade) com a outra mão |
 | Recuo no chão | **Intenso**: empurrão para trás em relação à mira |
 | Uso no ar: mira | **Segurar** a tecla entra em modo de mira: o Jet **cai bem devagar** (muita resistência à gravidade), o **combustível não recarrega**, o voo da jetpack fica pausado, a mira vira a **do Orbital Probe do Captain** e aparece um **círculo no chão do tamanho do raio da explosão** onde o sinalizador vai cair. Animação provisória: Suppressive Fire do Commando |
-| Uso no ar: soltar | Ao **soltar**, o sinalizador sai (em arco, caindo exatamente no ponto mirado) e o Jet faz o **dash do Tactical Dive do Commando** (mesma animação e distância), **sempre para trás**, independente das teclas |
+| Uso no ar: soltar | Ao **soltar**, o sinalizador sai (em arco, caindo exatamente no ponto mirado) e o Jet faz o dash do Tactical Dive do Commando (mesma distância) na **direção oposta à mira, em 3D**: mirando para baixo, ele **sobe** (ferramenta para se manter no ar); mirando reto, vai para trás; mirando para cima, desce. Independe das teclas |
 | Acerto direto | O inimigo atingido em cheio leva **2× 300%** (dois acertos, sem ativar Kjaro/Runald) + **Burn** |
 | Área | A explosão causa **300%** (um acerto) + **Burn** aos **demais** inimigos no raio (o alvo direto não leva a área) |
 | Poça de fogo | Ao cair, **incendeia o chão** como um mini Molotov: **200% de dano por segundo**, **proc coefficient 0,5** (o Burn só é aplicado em ~50% dos ticks) |
@@ -63,28 +66,32 @@ A chance é baixa de propósito: é um momento de surpresa, não uma fonte de ec
 | Múltiplas mortes | Sorteio e feixe **uma vez por disparo**, não por inimigo morto |
 | Placeholder | Projétil: firebolt da Artificer. Animação: FMJ do Commando (animação própria do recuo depois). Sons: vanilla (fogos, Captain) |
 
-## Utilitária: Do a Barrel Roll!
-**Intenção:** dash ofensivo que transforma a jetpack em arma. Recompensa posicionamento com os direcionais e oferece
-um "all-in" que troca combustível (e um pouco de vida) por dano massivo.
+## Utilitária: DO A BARREL ROLL! // ACE THE SKIES!
+**Intenção:** a habilidade de **mobilidade** do Jet (2 cargas de rolagens explosivas) com um "all-in" opcional:
+segurar para frente e queimar todo o combustível num rasante de alta velocidade que explode com dano massivo,
+ao custo de ficar sem jetpack e sem a habilidade por 10 s.
 
 | Aspecto | Definição |
 |---|---|
-| Restrição | **Só no ar** (não funciona no chão) |
-| Direção | Direcionais apertados no momento do Shift; **sem direcional = sobe na vertical** |
+| Restrição | **Só no ar** |
+| Cargas | **2** (começa cheio), recarga de **6 s** por carga |
+| Explosão de saída | Toda ativação explode no **ponto de saída**: **600%** + **Burn** (ativa Kjaro/Runald, intencional) |
 
-**1ª ativação: Burst**
-- **Não gasta combustível.**
-- A chama da jetpack fica **azul**.
-- Explosão que **impulsiona** Jet e deixa um **rastro de fogo para trás** (o dano fica no ponto de partida e no caminho).
-- **600% de dano** + **Burn**.
-- Abre uma **janela de 2 a 3 s** para o recast (ritmo parecido com os dashes encadeados do Mercenário).
-  Se a janela acabar sem recast, a skill entra em **cooldown**.
+**Rolagens (A / D / S):** depois da explosão, rola para o lado/trás com a animação de rolagem do Tactical Dive do
+Commando (esquerda/direita/trás), com distância **um pouco maior** (1,25×). Sem tecla = para trás.
 
-**2ª ativação (dentro da janela): Overburn**
-- Consome **todo o combustível restante**. Funciona **mesmo com o tanque vazio**.
-- Impulsiona Jet **ainda mais longe** que o Burst.
-- **1200% de dano base, escalando com o combustível consumido** (tanque vazio = base; tanque cheio = bônus máximo).
-- Aplica **1 stack de Burn no próprio Jet**.
+**W: Ace the Skies**
+| Fase | Comportamento |
+|---|---|
+| Toque | Dash curto para frente (dura no mínimo 0,35 s mesmo soltando) |
+| Segurando | Voa em **alta velocidade** (2,5× o voo) **só para frente**, seguindo a **mira**; **A/D** desviam. Gasta combustível no ritmo do voo. Não pode atirar, usar outras skills ou dashes enquanto segura. Combustível acabou nesta fase = termina |
+| **1,5 s** segurando | **Queima**: a chama fica **azul**; o combustível é gasto **no ritmo normal do voo**, e cada parte queimada aumenta o dano final. Com o tanque vazio, continua voando mas **não sobe mais** (só reto/para baixo) |
+| Fim da queima | Ao **soltar** ou ao **tocar o chão**: explosão de **1200% a 3600%** (proporcional ao tanque queimado na queima; inteiro = 3600%), Burn |
+| Custo da queima | **Todas as cargas** gastas, a primeira volta só após **10 s**; **jetpack desativada** por 10 s (medidor cinza); **1 stack de Burn fraco** no próprio Jet (estético) |
+| Quique | Se a queima terminou **batendo no chão**, o Jet **quica para trás em arco** (rolagem para trás do Commando) |
+
+Placeholders: animação do Ace = Tactical Slide do Commando (a do Mercenário não existe no animador do Commando;
+virá com o modelo próprio). Explosões: efeito de fogo do Gasoline.
 
 ## Especial: *(nome a definir)*
 **Intenção:** o ataque aéreo definitivo, um rasante de caça. Premia jogar no ar e "preparar" inimigos com Burn

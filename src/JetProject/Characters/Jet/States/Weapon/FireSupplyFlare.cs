@@ -60,7 +60,7 @@ namespace JetProject.Characters.Jet.States.Weapon
             var body = EntityStateMachine.FindByCustomName(gameObject, JetStateMachines.Body);
 
             if (airborne && JetConfig.SecondaryAirBackDodge.Value && body)
-                body.SetInterruptState(new SupplyFlareBackDodge(), InterruptPriority.Skill);
+                body.SetInterruptState(new JetDodge { Direction = JetDodge.AwayFromAim(inputBank, transform), FollowFullDirection = true }, InterruptPriority.Skill);
             else
                 SelfKnockback.Apply(characterBody, aimRay.direction, JetConfig.SecondarySelfKnockback.Value);
         }

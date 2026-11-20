@@ -1,5 +1,6 @@
 using EntityStates;
 using JetProject.Characters.Jet.States.Movement;
+using JetProject.Characters.Jet.States.Utility;
 using JetProject.Characters.Jet.States.Weapon;
 using JetProject.Framework.Content;
 using JetProject.Framework.Skills;
@@ -62,7 +63,36 @@ namespace JetProject.Characters.Jet.Skills
             content.AddEntityState<SupplyFlareEntry>();
             content.AddEntityState<FireSupplyFlare>();
             content.AddEntityState<AimSupplyFlare>();
-            content.AddEntityState<SupplyFlareBackDodge>();
+            content.AddEntityState<JetDodge>();
+            return family;
+        }
+
+        public static SkillFamily CreateUtilityFamily(ContentRegistry content)
+        {
+            // Só no ar. Ativa o BarrelRollEntry na máquina Body (rolagens e Ace substituem o movimento normal).
+            var barrelRoll = SkillFactory.CreateSkill<AirborneSkillDef>("JetBarrelRoll", typeof(BarrelRollEntry), JetStateMachines.Body, def =>
+            {
+                def.skillNameToken = JetTokens.UtilityName;
+                def.skillDescriptionToken = JetTokens.UtilityDescription;
+                def.baseMaxStock = JetConfig.UtilityCharges.Value;
+                def.baseRechargeInterval = JetConfig.UtilityCooldown.Value;
+                def.rechargeStock = 1;
+                def.requiredStock = 1;
+                def.stockToConsume = 1;
+                def.fullRestockOnAssign = true;
+                def.interruptPriority = InterruptPriority.PrioritySkill;
+                def.isCombatSkill = true;
+                def.cancelSprintingOnActivation = false;
+                def.mustKeyPress = true;
+            });
+
+            var family = SkillFactory.CreateFamily("JetUtilityFamily", barrelRoll);
+
+            content.AddSkill(barrelRoll);
+            content.AddSkillFamily(family);
+            content.AddEntityState<BarrelRollEntry>();
+            content.AddEntityState<AceTheSkies>();
+            content.AddEntityState<AceTheSkiesBurn>();
             return family;
         }
     }

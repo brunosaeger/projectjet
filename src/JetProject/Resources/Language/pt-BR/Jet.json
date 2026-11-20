@@ -15,6 +15,9 @@
 
     "JETPROJECT_JET_SUPPLY_DROP_MESSAGE": "<style=cIsUtility>UES Safe Travels: suprimentos a caminho!</style>",
 
+    "JETPROJECT_JET_UTILITY_NAME": "DO A BARREL ROLL! // ACE THE SKIES!",
+    "JETPROJECT_JET_UTILITY_DESCRIPTION": "<style=cIsDamage>Incendiário</style>. Só no ar. Explode causando <style=cIsDamage>600% de dano</style> e faz um <style=cIsUtility>barrel roll</style> na direção das teclas. Tem <style=cIsUtility>2 cargas</style>.\r\nSegure para frente para <style=cIsUtility>ACE THE SKIES</style>: voa em alta velocidade. Continue segurando para <style=cIsDamage>queimar o combustível</style> e explodir com <style=cIsDamage>1200%-3600% de dano</style>, conforme o combustível queimado. Queimar <style=cIsHealth>desativa a jetpack e esta habilidade por 10 segundos</style>.",
+
     "JETPROJECT_JET_PRIMARY_DESCRIPTION": "Dispara um projétil pesado causando <style=cIsDamage>350% de dano</style> e <style=cIsUtility>te empurrando para trás</style>. Todo <style=cIsDamage>terceiro tiro perfura</style> causando <style=cIsDamage>2x250% de dano</style>, com recuo maior."
   }
 }

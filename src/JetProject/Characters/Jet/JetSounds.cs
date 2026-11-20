@@ -9,6 +9,16 @@ namespace JetProject.Characters.Jet
         public const string HandCannonFire = "Play_Jet_HandCannon_Fire";
         public const string HandCannonFirePiercing = "Play_Jet_HandCannon_FirePiercing";
 
+        /// <summary>Toda vez que a jetpack liga.</summary>
+        public const string JetpackIgnite = "Play_Jet_Jetpack_Ignite";
+
+        /// <summary>Loop enquanto a jetpack voa (parar com <see cref="JetpackLoopStop"/>).</summary>
+        public const string JetpackLoop = "Play_Jet_Jetpack_Loop";
+        public const string JetpackLoopStop = "Stop_Jet_Jetpack_Loop";
+
+        /// <summary>Aviso de combustível acabando (só para o próprio jogador).</summary>
+        public const string JetpackLowFuel = "Play_Jet_Jetpack_LowFuel";
+
         // Eventos VANILLA reaproveitados (estão nos soundbanks do jogo).
 
         /// <summary>Disparo do sinalizador: som de lançamento dos fogos de artifício (Bundle of Fireworks).</summary>

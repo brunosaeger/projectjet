@@ -21,7 +21,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="Jet_HandCannon_Fire" ID="{E1CF8B91-237A-485E-9480-BB31557260AF}" ShortID="1024007200">
+						<Sound Name="Jet_HandCannon_Fire" ID="{B633F2C5-77A1-4ACA-A47D-A5A6F3DE6DD7}" ShortID="129718050">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -38,7 +38,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Jet_HandCannon_Fire" ID="{466687C5-5261-4BE1-BC7A-022498DFE666}">
+								<AudioFileSource Name="Jet_HandCannon_Fire" ID="{E67CBC9B-81EC-4491-BDCF-F0410ED78365}">
 									<Language>SFX</Language>
 									<AudioFile>Jet_HandCannon_Fire.wav</AudioFile>
 									<MediaIDList>
@@ -47,10 +47,10 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Jet_HandCannon_Fire" ID="{466687C5-5261-4BE1-BC7A-022498DFE666}" Platform="Linked"/>
+								<ActiveSource Name="Jet_HandCannon_Fire" ID="{E67CBC9B-81EC-4491-BDCF-F0410ED78365}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Jet_HandCannon_FirePiercing" ID="{25517222-3678-4A09-A1E1-2F3ABB2ABD45}" ShortID="973522936">
+						<Sound Name="Jet_HandCannon_FirePiercing" ID="{EC9F9A77-4CF7-4EAF-8F51-E4E29666E6BF}" ShortID="334986964">
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
@@ -67,7 +67,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Jet_HandCannon_FirePiercing" ID="{8EA1E667-08E9-4D2C-B797-0D73CFA5AC9C}">
+								<AudioFileSource Name="Jet_HandCannon_FirePiercing" ID="{9F3EC244-3D01-43B5-94DC-89EC439D5301}">
 									<Language>SFX</Language>
 									<AudioFile>Jet_HandCannon_FirePiercing.wav</AudioFile>
 									<MediaIDList>
@@ -76,7 +76,76 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Jet_HandCannon_FirePiercing" ID="{8EA1E667-08E9-4D2C-B797-0D73CFA5AC9C}" Platform="Linked"/>
+								<ActiveSource Name="Jet_HandCannon_FirePiercing" ID="{9F3EC244-3D01-43B5-94DC-89EC439D5301}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jet_Jetpack_Ignite" ID="{B9477027-C29B-4ADA-9086-04C633E2FDFC}" ShortID="741644095">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D9E6698-F24D-4E5D-86A1-18D14BA40B69}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FE3C3C99-0EFC-4612-BCD0-3C34DD7173B5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jet_Jetpack_Ignite" ID="{9906AD65-F518-4948-A676-9EED36EA3F4E}">
+									<Language>SFX</Language>
+									<AudioFile>Jet_Jetpack_Ignite.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="964725497"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jet_Jetpack_Ignite" ID="{9906AD65-F518-4948-A676-9EED36EA3F4E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jet_Jetpack_LowFuel" ID="{6ED7482D-9CF3-4530-9235-C617AB05D106}" ShortID="799655158">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D9E6698-F24D-4E5D-86A1-18D14BA40B69}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FE3C3C99-0EFC-4612-BCD0-3C34DD7173B5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jet_Jetpack_LowFuel" ID="{057158D2-434C-4641-BE4E-5667F8B01AD1}">
+									<Language>SFX</Language>
+									<AudioFile>Jet_Jetpack_LowFuel.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="413007329"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jet_Jetpack_LowFuel" ID="{057158D2-434C-4641-BE4E-5667F8B01AD1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jet_Jetpack_Loop" ID="{78B33A44-21EB-41D2-8741-3ECE605BF2CA}" ShortID="186797454">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D9E6698-F24D-4E5D-86A1-18D14BA40B69}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FE3C3C99-0EFC-4612-BCD0-3C34DD7173B5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jet_Jetpack_Loop" ID="{F79AA1D6-B46F-4629-AC3D-3649D729FACB}">
+									<Language>SFX</Language>
+									<AudioFile>Jet_Jetpack_Loop.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="488154762"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jet_Jetpack_Loop" ID="{F79AA1D6-B46F-4629-AC3D-3649D729FACB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

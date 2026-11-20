@@ -20,5 +20,8 @@ namespace JetProject.Characters.Jet
         public const string SecondaryName = Prefix + "SECONDARY_NAME";
         public const string SecondaryDescription = Prefix + "SECONDARY_DESCRIPTION";
         public const string SupplyDropMessage = Prefix + "SUPPLY_DROP_MESSAGE";
+
+        public const string UtilityName = Prefix + "UTILITY_NAME";
+        public const string UtilityDescription = Prefix + "UTILITY_DESCRIPTION";
     }
 }
