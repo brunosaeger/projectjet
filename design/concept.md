@@ -10,9 +10,9 @@ No chão ele joga como um shooter; no ar ele vira um caça. A decisão central d
 ## Pilar de gameplay: Jetpack (passiva)
 - 1º pulo (espaço): pulo normal.
 - 2º pulo (espaço no ar): no lugar de um double jump, **ativa a jetpack**.
-  1. Dá um **impulso inicial** leve.
-  2. Entra em **modo de voo**: Jet voa **constantemente**, e a direção é **100% livre**, seguindo a mira (mouse).
-     A câmera acompanha o mouse, então o controle fica fluido e responsivo.
+  1. Dá um **impulso inicial** leve (só na primeira ignição depois de sair do chão).
+  2. Entra em **modo de voo**: a direção segue o **WASD** e a jetpack sempre puxa um pouco para cima.
+     O mouse **gira o personagem e a mira**, independente da direção do voo: dá para voar para trás atirando para frente.
   3. O voo dura **enquanto o espaço estiver pressionado** e **houver combustível**.
 - **Medidor de combustível** sempre visível **ao lado do personagem**, como o medidor de corrupção do Void Fiend.
 - Ao soltar o espaço ou zerar o combustível, o voo termina e Jet volta a cair normalmente.

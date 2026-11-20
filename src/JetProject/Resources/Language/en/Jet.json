@@ -1,0 +1,20 @@
+{
+  "strings": {
+    "JETPROJECT_JET_NAME": "Jet",
+    "JETPROJECT_JET_SUBTITLE": "Burning Sky",
+    "JETPROJECT_JET_DESCRIPTION": "Jet is an aerial gunslinger who turns his jetpack into both mobility and a weapon.<style=cSub>\r\n\r\n< ! > Press jump in the air to ignite the jetpack: steer with your movement keys while your aim stays free.\r\n\r\n< ! > Watch your fuel gauge: it refills shortly after you stop flying.\r\n\r\n< ! > Every third shot pierces, so line enemies up.</style>",
+    "JETPROJECT_JET_OUTRO_FLAVOR": "..and so he left, chasing a brighter sky.",
+    "JETPROJECT_JET_OUTRO_FAILURE": "..and so he vanished, his last flare fading in the dark.",
+
+    "JETPROJECT_JET_PASSIVE_NAME": "Jetpack",
+    "JETPROJECT_JET_PASSIVE_DESCRIPTION": "Press <style=cIsUtility>jump</style> in the air to <style=cIsUtility>ignite your jetpack</style> and fly while holding it, steering with your <style=cIsUtility>movement keys</style>. Flight consumes <style=cIsUtility>fuel</style>. <style=cIsUtility>Hopoo Feathers</style> speed up refueling instead of granting extra jumps, and each <style=cIsUtility>Gasoline</style> adds <style=cIsUtility>+15%</style> tank capacity.",
+
+    "JETPROJECT_JET_PRIMARY_NAME": "Hand Cannon",
+    "JETPROJECT_JET_SECONDARY_NAME": "UES Safe Travels Supplies",
+    "JETPROJECT_JET_SECONDARY_DESCRIPTION": "<style=cIsDamage>Ignite</style>. Fire an arcing flare, <style=cIsUtility>blasting you backwards</style>. A direct hit deals <style=cIsDamage>2x300% damage</style>; the explosion deals <style=cIsDamage>300%</style> to nearby enemies. Kills call in a supply beacon with a tiny chance to drop a <style=cIsUtility>chest</style>.",
+
+    "JETPROJECT_JET_SUPPLY_DROP_MESSAGE": "<style=cIsUtility>UES Safe Travels: supply drop inbound!</style>",
+
+    "JETPROJECT_JET_PRIMARY_DESCRIPTION": "Fire a heavy round for <style=cIsDamage>350% damage</style>, <style=cIsUtility>knocking you back</style>. Every <style=cIsDamage>third shot pierces</style> for <style=cIsDamage>2x250% damage</style> with stronger recoil."
+  }
+}

@@ -13,6 +13,19 @@
   <ItemGroup>
     <PackageReference Include="BepInEx.Core" Version="5.4.21" PrivateAssets="all" />
     <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.2" PrivateAssets="all" />
+    <PackageReference Include="R2API.Prefab" Version="1.1.1" PrivateAssets="all" />
+    <PackageReference Include="R2API.Sound" Version="1.0.3" PrivateAssets="all" />
+    <PackageReference Include="RoR2BepInExPack" Version="1.50.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!--
+    O R2API traz transitivamente cópias (desatualizadas) das DLLs do jogo/Unity.
+    Excluímos para compilar SEMPRE contra a instalação local (ver bloco abaixo).
+  -->
+  <ItemGroup>
+    <PackageReference Include="RiskOfRain2.GameLibs" Version="1.5.0-r.1" ExcludeAssets="all" PrivateAssets="all" />
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.45" ExcludeAssets="all" PrivateAssets="all" />
+    <PackageReference Include="MMHOOK.RoR2" Version="2025.6.3" ExcludeAssets="all" PrivateAssets="all" NoWarn="NU1701" />
   </ItemGroup>
 
   <!-- Assemblies do jogo, referenciados direto da instalação (sempre batem com a versão instalada) -->

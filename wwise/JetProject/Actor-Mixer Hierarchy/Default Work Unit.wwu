@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D7ED64DB-B514-4B3D-AB4D-350510361762}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{D7ED64DB-B514-4B3D-AB4D-350510361762}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="JetProject" ID="{C8C83D2D-2122-4EC1-9EB8-9A51ED9E7581}" ShortID="241149776">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="JetProject_Default" ID="{92ABAFEB-13F1-4339-8AED-DDC96DF0F63F}" WorkUnitID="{5EB4F9C9-665C-4B76-B612-BE59474BF6E8}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D9E6698-F24D-4E5D-86A1-18D14BA40B69}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Character" ID="{A6CF6001-03C4-4F51-BD61-40025D6EDD30}" WorkUnitID="{FE3C3C99-0EFC-4612-BCD0-3C34DD7173B5}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Jet_HandCannon_Fire" ID="{E1CF8B91-237A-485E-9480-BB31557260AF}" ShortID="1024007200">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D9E6698-F24D-4E5D-86A1-18D14BA40B69}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FE3C3C99-0EFC-4612-BCD0-3C34DD7173B5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jet_HandCannon_Fire" ID="{466687C5-5261-4BE1-BC7A-022498DFE666}">
+									<Language>SFX</Language>
+									<AudioFile>Jet_HandCannon_Fire.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="340173589"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jet_HandCannon_Fire" ID="{466687C5-5261-4BE1-BC7A-022498DFE666}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Jet_HandCannon_FirePiercing" ID="{25517222-3678-4A09-A1E1-2F3ABB2ABD45}" ShortID="973522936">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{0D9E6698-F24D-4E5D-86A1-18D14BA40B69}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FE3C3C99-0EFC-4612-BCD0-3C34DD7173B5}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Jet_HandCannon_FirePiercing" ID="{8EA1E667-08E9-4D2C-B797-0D73CFA5AC9C}">
+									<Language>SFX</Language>
+									<AudioFile>Jet_HandCannon_FirePiercing.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="535557066"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Jet_HandCannon_FirePiercing" ID="{8EA1E667-08E9-4D2C-B797-0D73CFA5AC9C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

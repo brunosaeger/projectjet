@@ -9,6 +9,12 @@ Ciclo de vida dos módulos e comunicação entre eles. ← [Framework](../contex
 | `ModuleHost` | Inicializa módulos na ordem de registro; loga e relança falhas indicando o módulo culpado |
 | `ModContext` | `PluginDirectory`, `Config` (BepInEx ConfigFile) e um registro de serviços por tipo |
 | `Log` | Fachada estática sobre o `ManualLogSource` do plugin |
+| `ConfigRevision` | `ResetIfOutdated(config, revisão)`: quando a revisão sobe, todas as entradas do `.cfg` voltam ao padrão do código |
+
+## Config e valores padrão
+O BepInEx grava os valores no `.cfg`; mudar um padrão no código **não** muda o valor de quem já tem o arquivo.
+Por isso, cada conjunto de configs chama `ConfigRevision.ResetIfOutdated` depois dos `Bind`, e a revisão é
+incrementada sempre que um padrão muda (ex.: `JetConfig.DefaultsRevision`).
 
 ## Padrão de serviços
 ```csharp

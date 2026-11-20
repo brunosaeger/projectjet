@@ -1,0 +1,20 @@
+{
+  "strings": {
+    "JETPROJECT_JET_NAME": "Jet",
+    "JETPROJECT_JET_SUBTITLE": "Céu em Chamas",
+    "JETPROJECT_JET_DESCRIPTION": "Jet é um pistoleiro aéreo que transforma sua jetpack em mobilidade e arma.<style=cSub>\r\n\r\n< ! > Aperte pulo no ar para ligar a jetpack: o voo segue as teclas de movimento, e a mira fica livre.\r\n\r\n< ! > Fique de olho no combustível: ele recarrega pouco depois de você parar de voar.\r\n\r\n< ! > Todo terceiro tiro perfura, então alinhe os inimigos.</style>",
+    "JETPROJECT_JET_OUTRO_FLAVOR": "..e assim ele partiu, atrás de um céu mais claro.",
+    "JETPROJECT_JET_OUTRO_FAILURE": "..e assim ele sumiu, seu último sinalizador se apagando no escuro.",
+
+    "JETPROJECT_JET_PASSIVE_NAME": "Jetpack",
+    "JETPROJECT_JET_PASSIVE_DESCRIPTION": "Aperte <style=cIsUtility>pulo</style> no ar para <style=cIsUtility>ligar a jetpack</style> e voar enquanto segurar, guiando com as <style=cIsUtility>teclas de movimento</style>. Voar consome <style=cIsUtility>combustível</style>. <style=cIsUtility>Hopoo Feathers</style> aceleram a recarga em vez de dar pulos extras, e cada <style=cIsUtility>Gasoline</style> dá <style=cIsUtility>+15%</style> de capacidade.",
+
+    "JETPROJECT_JET_PRIMARY_NAME": "Canhão de Mão",
+    "JETPROJECT_JET_SECONDARY_NAME": "Suprimentos UES Safe Travels",
+    "JETPROJECT_JET_SECONDARY_DESCRIPTION": "<style=cIsDamage>Incendiário</style>. Dispara um sinalizador em arco que <style=cIsUtility>te arremessa para trás</style>. O acerto direto causa <style=cIsDamage>2x300% de dano</style>; a explosão causa <style=cIsDamage>300%</style> aos inimigos próximos. Abates chamam um sinalizador de entrega com chance mínima de trazer um <style=cIsUtility>baú</style>.",
+
+    "JETPROJECT_JET_SUPPLY_DROP_MESSAGE": "<style=cIsUtility>UES Safe Travels: suprimentos a caminho!</style>",
+
+    "JETPROJECT_JET_PRIMARY_DESCRIPTION": "Dispara um projétil pesado causando <style=cIsDamage>350% de dano</style> e <style=cIsUtility>te empurrando para trás</style>. Todo <style=cIsDamage>terceiro tiro perfura</style> causando <style=cIsDamage>2x250% de dano</style>, com recuo maior."
+  }
+}

@@ -26,3 +26,8 @@ art/concept/refs/
 
 # Saídas geradas
 unity/AssetBundles/
+
+# Wwise: tudo que o tools/audio/build-soundbank.ps1 regenera
+# (fonte da verdade = wwise/sounds.json + art/audio/source; o .bnk final vai em src/JetProject/Resources/SoundBanks)
+wwise/JetProject/GeneratedSoundBanks/
+wwise/JetProject/Originals/

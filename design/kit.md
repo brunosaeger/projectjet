@@ -12,28 +12,35 @@ para que voar seja uma decisão e não um estado permanente.
 | Aspecto | Definição |
 |---|---|
 | Ativação | 2º toque no espaço, estando no ar (substitui o double jump) |
-| Impulso inicial | Leve, na direção da mira |
-| Voo | Velocidade constante na direção da **mira** (3D livre); dura enquanto o espaço estiver segurado |
-| Direcionais no voo | **W/A/D** desviam um pouco a trajetória (a mira domina). **S não freia**: Jet não para até soltar o espaço |
+| Direção do voo | **WASD** (relativo à câmera), incluindo **voar para trás**. A mira **só gira o personagem**: dá para recuar voando enquanto atira para frente |
+| Subida | Com a jetpack ligada, Jet **sempre sobe um pouco** |
+| Inércia | A velocidade **acelera** até o alvo (não é instantânea) |
+| Impulso inicial | Só na **primeira** ignição depois de sair do chão. Religar no ar **não** dá impulso (evita ganhar distância tocando o espaço várias vezes) |
 | Combate | Jet **atira e usa skills durante o voo** |
 | Fim | Soltar o espaço **ou** combustível = 0 |
 | Religar | Pode religar no mesmo pulo, **quantas vezes quiser, enquanto houver combustível** |
 | Recurso | Combustível, com medidor ao lado do personagem (estilo Void Fiend) |
-| Recarga | Começa após **~1 s sem voar**; rápida no chão, mais lenta no ar |
-| Velocidade | **Escala 100% com velocidade de movimento** (Energy Drink, Goat Hoof etc.) |
-| Hopoo Feather | **Não dá pulos extras.** Cada pena **aumenta a capacidade do tanque** (mais tempo de voo) |
+| Recarga | Começa após **~1 s sem voar**; **mesma taxa no chão e no ar** |
+| Velocidade | Horizontal (frente/lados) **escala 100% com velocidade de movimento** (Energy Drink, Goat Hoof etc.). A **subida é fixa**: itens **não** a aceleram |
+| Hopoo Feather | **Não dá pulos extras.** Cada pena **acelera a recarga** do combustível (+20% por stack, linear) |
+| Gasoline | Além do efeito normal (explosão de fogo ao matar), cada stack dá **+15% de capacidade total do tanque** (linear) |
 
 ---
 
-## Primária: Desert Eagle *(nome provisório)*
+## Primária: Hand Cannon / Canhão de Mão *(nome provisório; "Desert Eagle" é marca registrada)*
 **Intenção:** tiro pesado e ritmado. Cada disparo importa, e o 3º tiro recompensa alinhar inimigos.
 
 | Aspecto | Definição |
 |---|---|
-| Tipo | Pistola semiautomática (hitscan), **um pouco lenta** |
+| Tipo | Pistola semiautomática (hitscan), **um pouco lenta**, com **bala grossa** (hitbox maior, sensação de alto calibre) |
 | Dano | **350%** por tiro |
-| Ritmo | A cada **3º tiro**, o disparo **perfura** inimigos |
+| Recuo | **Todo tiro** empurra o Jet para trás (como o tiro sem mira da Railgunner). "Uma deagle de verdade" |
+| Coice | A mira/câmera **sobe forte** a cada tiro e volta sozinha (mais forte no 3º tiro) |
+| 3º tiro | **Perfura** inimigos, causa **2× 250%** (dois acertos na mesma linha) e tem **recuo maior** |
+| Kjaro/Runald | Nenhum acerto da primária chega a 400%, para **não ativar** as Bands (por isso o 3º tiro é 2×250% e não 1×500%) |
 | Uso | Chão e ar (inclusive voando) |
+
+> O recuo de tiro (self-knockback) também será usado na **Secundária**.
 
 ## Secundária: UES Safe Travels Supplies
 **Intenção:** utilidade de área com um "presente" raro, um aceno à nave UES Safe Travels da lore do RoR2.
@@ -41,11 +48,20 @@ A chance é baixa de propósito: é um momento de surpresa, não uma fonte de ec
 
 | Aspecto | Definição |
 |---|---|
-| Ação | Dispara um **sinalizador** com a outra mão |
-| Efeito | **Dano em área** + aplica **Burn** |
-| Bônus | Se o sinalizador **mata** um inimigo: **0,5%** de chance de surgir um **baú** |
-| Múltiplas mortes | A chance é rolada **uma vez por disparo**, não por inimigo morto |
-| Baú | Qualquer tipo de baú, **exceto lendário** |
+| Ação | Dispara um **sinalizador em arco** (cai com a gravidade) com a outra mão |
+| Recuo no chão | **Intenso**: empurrão para trás em relação à mira |
+| Uso no ar: mira | **Segurar** a tecla entra em modo de mira: o Jet **cai bem devagar** (muita resistência à gravidade), o **combustível não recarrega**, o voo da jetpack fica pausado, a mira vira a **do Orbital Probe do Captain** e aparece um **círculo no chão do tamanho do raio da explosão** onde o sinalizador vai cair. Animação provisória: Suppressive Fire do Commando |
+| Uso no ar: soltar | Ao **soltar**, o sinalizador sai (em arco, caindo exatamente no ponto mirado) e o Jet faz o **dash do Tactical Dive do Commando** (mesma animação e distância), **sempre para trás**, independente das teclas |
+| Acerto direto | O inimigo atingido em cheio leva **2× 300%** (dois acertos, sem ativar Kjaro/Runald) + **Burn** |
+| Área | A explosão causa **300%** (um acerto) + **Burn** aos **demais** inimigos no raio (o alvo direto não leva a área) |
+| Poça de fogo | Ao cair, **incendeia o chão** como um mini Molotov: **200% de dano por segundo**, **proc coefficient 0,5** (o Burn só é aplicado em ~50% dos ticks) |
+| Recarga | **5 s** |
+| Projétil | **Um pouco maior** que o firebolt original (1,6×, visual e colisão). Disparo com som de **fogos de artifício** |
+| Aviso de entrega | Quando o disparo **mata** (acerto direto, área, **poça de fogo** ou **Burn** aplicado por eles, inclusive stacks novos de Burn depois do primeiro), aparece no local o **feixe de marcação da utilitária do Captain**, com o **som de aviso** dele. Só a **primeira** morte de cada disparo conta |
+| Queda do baú | Se o sorteio passar, no fim do feixe acontece o **impacto do Orbital Probe** (poeira, anéis, **tremor de tela**, som de impacto) + **som de queda da entrega do Captain**, e o baú surge **logo após o impacto, exatamente no chão onde o inimigo morreu**. O baú é **pago** (preço normal da fase) |
+| Baú | O baú só cai no fim do feixe se o sorteio passar: **0,5%** qualquer tipo de baú (comum, grande, categoria, equipamento, adaptativo, camuflado, lunar, Void se a DLC estiver ativa) e **0,25%** baú **lendário** |
+| Múltiplas mortes | Sorteio e feixe **uma vez por disparo**, não por inimigo morto |
+| Placeholder | Projétil: firebolt da Artificer. Animação: FMJ do Commando (animação própria do recuo depois). Sons: vanilla (fogos, Captain) |
 
 ## Utilitária: Do a Barrel Roll!
 **Intenção:** dash ofensivo que transforma a jetpack em arma. Recompensa posicionamento com os direcionais e oferece
@@ -104,13 +120,13 @@ um "all-in" que troca combustível (e um pouco de vida) por dano massivo.
 
 ## Notas de implementação (para o código, não são decisões de design)
 - **Passiva:** estado principal do body (subclasse de `GenericCharacterMain`) intercepta o pulo no ar; state machine
-  dedicada "Jetpack" com `Idle`/`Boost`/`Flight`, separada da "Weapon", por isso atirar voando funciona naturalmente.
-  No voo: gravidade desligada, velocidade = `aimDirection` × `moveSpeed`, mais um desvio de `moveVector` sem a
-  componente "para trás". Movimento de player é autoritativo no cliente, então funciona em multiplayer sem sincronização extra.
-- **Combustível:** componente no body (capacidade = base + bônus por Hopoo Feather). API para a utilitária
-  consumir "todo o restante" e informar quanto foi consumido. Medidor no HUD = submódulo genérico do Framework.
+  dedicada "Jetpack" com `Idle`/`JetpackFlight`, separada da "Weapon", por isso atirar voando funciona naturalmente.
+  No voo: gravidade desligada, velocidade acelera até `moveVector × velocidade + subida`; o corpo encara a mira.
+  Movimento de player é autoritativo no cliente, então funciona em multiplayer sem sincronização extra.
+- **Combustível:** componente no body (capacidade = base × bônus de Gasoline; recarga = base × bônus de Hopoo Feather).
+  API para a utilitária consumir "todo o restante" e informar quanto foi consumido. Medidor no HUD = submódulo genérico do Framework.
 - **Hopoo Feather:** o `CharacterMotor` conta pulos extras pela pena; o estado principal do Jet ignora esses pulos e
-  usa a contagem de penas só para a capacidade do tanque.
+  usa a contagem de penas só para a velocidade de recarga do combustível.
 - **Chama azul:** um único componente de VFX da jetpack com modos (normal/azul), compartilhado por Utilitária e Especial.
 - **Primária:** contador de tiros no próprio componente do survivor (sobrevive entre estados) para o 3º tiro perfurante.
 - **Secundária:** o baú é spawnado **no servidor** via `DirectorCore` + `InteractableSpawnCard` do baú sorteado.

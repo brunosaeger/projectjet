@@ -1,0 +1,13 @@
+# Mods instalados no perfil de teste por tools/install-mods.ps1 (dependências resolvidas automaticamente).
+# Formato: Namespace-Nome (como no Thunderstore). Linhas com # são ignoradas.
+
+# Base da comunidade: patches de compatibilidade + Newtonsoft.Json (o jogo não traz mais essa DLL).
+# Exigido pelo R2API, mas não declarado como dependência no Thunderstore, por isso fica explícito aqui.
+RiskofThunder-RoR2BepInExPack
+
+# Runtime do Jet (também vão como dependência no manifest do Thunderstore)
+RiskofThunder-R2API_Prefab
+RiskofThunder-R2API_Sound
+
+# Só para desenvolvimento (spawnar itens/inimigos, comandos no console)
+IHarbHD-DebugToolkit

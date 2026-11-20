@@ -8,7 +8,7 @@ Nenhum código aqui. Os módulos de código implementam o que está decidido aqu
 |---|---|---|
 | [concept.md](concept.md) | ✅ v1 | Identidade do **Jet**: fantasia, passiva Jetpack, paleta, corpo, jetpack, capacete |
 | [kit.md](kit.md) | 🟢 v1 | Passiva + 4 skills definidas; restam nomes, cooldowns e detalhes (ver "Perguntas em aberto") |
-| `balance.md` | a criar | Histórico de ajustes de balanceamento e o motivo de cada um |
+| [balance.md](balance.md) | 🟢 v0.1 | Valores atuais e histórico de ajustes com o motivo de cada um |
 | `lore.md` | a criar | Logbook, falas, descrições, textos de seleção (vira tokens em Resources/Language) |
 
 ## Regras

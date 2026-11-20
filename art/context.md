@@ -11,7 +11,13 @@ art/
     refs/       referências de terceiros: só locais, gitignored (não redistribuir no repo público)
   blender/      arquivos .blend (modelo, rig, animações)
   textures/     texturas fonte (psd, kra, substance) e exportadas (png)
+  audio/source/ áudios originais (mp3/wav); entram no jogo via wwise/sounds.json + tools/audio/build-soundbank.ps1
 ```
+
+## Autoria
+Tudo em `art/` (exceto `concept/refs/`, que não é versionado) é **produção original do usuário**, incluindo
+os desenhos de conceito e os áudios (`audio/source/normaldeagle.mp3`, `audio/source/newdeagle.mp3`).
+Ao adicionar um asset de terceiros, registre aqui a fonte e a licença antes de versionar.
 
 ## Convenções técnicas (alvo RoR2)
 - **Escala:** 1 unidade Blender = 1 metro. Altura de survivor ≈ 1,5 a 2,5 m (referência: Commando ≈ 1,8 m).

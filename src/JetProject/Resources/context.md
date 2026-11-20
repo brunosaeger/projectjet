@@ -7,6 +7,7 @@ Tudo aqui é copiado para a saída do build (`CopyToOutputDirectory`) e para o p
 | Pasta | Conteúdo | Quem consome |
 |---|---|---|
 | `Language/<idioma>/*.json` | Tokens de texto | [Localization](../Framework/Localization/context.md) |
+| `SoundBanks/*.bnk` | Soundbanks Wwise (gerados por `tools/audio/build-soundbank.ps1`) | [Audio](../Framework/Audio/context.md) |
 | `AssetBundles/` *(futuro)* | Bundles gerados pelo [Unity](../../../unity/context.md) | [Assets](../Framework/Assets/context.md) |
 
 ## Regras

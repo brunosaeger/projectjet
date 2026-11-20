@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D2021745-6CA9-4B10-AF8B-49CE59E22E01}" SchemaVersion="119">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{D2021745-6CA9-4B10-AF8B-49CE59E22E01}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="JetProject" ID="{E37874D6-F466-4570-96C7-A283F678F17C}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Default Work Unit" ID="{AA72603E-7EBE-4E0D-A946-38D15E1A2269}" WorkUnitID="{AA72603E-7EBE-4E0D-A946-38D15E1A2269}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

@@ -45,13 +45,24 @@ Este arquivo é o ponto de entrada. Ele traz as diretrizes globais e aponta para
 | Framework | [src/JetProject/Framework/context.md](src/JetProject/Framework/context.md) | Regras da camada genérica |
 | ├ Core | [Framework/Core/context.md](src/JetProject/Framework/Core/context.md) | Ciclo de vida dos módulos, serviços, log |
 | ├ Content | [Framework/Content/context.md](src/JetProject/Framework/Content/context.md) | Registro de conteúdo → ContentPack do RoR2 |
-| ├ Assets | [Framework/Assets/context.md](src/JetProject/Framework/Assets/context.md) | Carregamento de AssetBundles |
-| └ Localization | [Framework/Localization/context.md](src/JetProject/Framework/Localization/context.md) | Integração com o sistema de idiomas do RoR2 |
-| Characters | [src/JetProject/Characters/context.md](src/JetProject/Characters/context.md) | Survivors do mod (body, skills, states) |
+| ├ Assets | [Framework/Assets/context.md](src/JetProject/Framework/Assets/context.md) | AssetBundles do mod e assets do jogo (Addressables) |
+| ├ Localization | [Framework/Localization/context.md](src/JetProject/Framework/Localization/context.md) | Integração com o sistema de idiomas do RoR2 |
+| ├ Bodies | [Framework/Bodies/context.md](src/JetProject/Framework/Bodies/context.md) | Clonagem de bodies e configuração de máquinas de estado |
+| ├ Skills | [Framework/Skills/context.md](src/JetProject/Framework/Skills/context.md) | Criação de SkillDefs e famílias |
+| ├ Survivors | [Framework/Survivors/context.md](src/JetProject/Framework/Survivors/context.md) | Criação de SurvivorDefs |
+| ├ UI | [Framework/UI/context.md](src/JetProject/Framework/UI/context.md) | Medidor de recurso no HUD |
+| ├ Combat | [Framework/Combat/context.md](src/JetProject/Framework/Combat/context.md) | Helpers de combate (recuo de tiro) |
+| ├ Audio | [Framework/Audio/context.md](src/JetProject/Framework/Audio/context.md) | Registro dos soundbanks Wwise do mod |
+| ├ Projectiles | [Framework/Projectiles/context.md](src/JetProject/Framework/Projectiles/context.md) | Clonagem de projéteis, arco, explosão em área |
+| ├ Interactables | [Framework/Interactables/context.md](src/JetProject/Framework/Interactables/context.md) | Spawn de baús e outros interagíveis |
+| └ Commands | [Framework/Commands/context.md](src/JetProject/Framework/Commands/context.md) | Comandos de teste no chat (`.help`) |
+| Characters | [src/JetProject/Characters/context.md](src/JetProject/Characters/context.md) | Survivors do mod |
+| └ Jet | [Characters/Jet/context.md](src/JetProject/Characters/Jet/context.md) | O survivor Jet: passiva, skills, states, config |
 | Resources | [src/JetProject/Resources/context.md](src/JetProject/Resources/context.md) | Dados distribuídos com a DLL (idiomas, bundles) |
 | Design | [design/context.md](design/context.md) | Conceito, kit de habilidades, balanceamento, lore |
 | Art | [art/context.md](art/context.md) | Fontes de arte (Blender, texturas, concept art) |
 | Unity | [unity/context.md](unity/context.md) | Projeto Unity que gera os AssetBundles |
+| Wwise | [wwise/context.md](wwise/context.md) | Projeto Wwise + manifesto de sons que gera o soundbank |
 | Tools | [tools/context.md](tools/context.md) | Scripts de desenvolvimento (perfil, launch) |
 | └ Blender | [tools/blender/context.md](tools/blender/context.md) | Automação bpy headless + integração MCP |
 
@@ -67,6 +78,17 @@ design/ (conceito) ─► art/ (Blender) ─► tools/blender (export FBX) ─�
 src/JetProject (C#) ─► dotnet build ─► deploy automático ─► perfil r2modman "JetDev" ─► tools/launch.ps1
 ```
 
+## Referências externas
+Consultar em caso de dúvida no desenvolvimento. Novos links indicados pelo usuário entram aqui.
+
+| Link | Assunto |
+|---|---|
+| [R2Wiki: Character](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Character/) | Criação de personagens (modelo, rig, prefab, setup no Unity) |
+| [R2Wiki: WWise Getting Started](https://risk-of-thunder.github.io/R2Wiki/Mod-Creation/Assets/Sounds/WWise/Getting-Started) | Sons próprios via Wwise (o áudio do Unity é desativado no RoR2) |
+
+**Atenção:** guias da comunidade podem estar desatualizados (ex.: o jogo hoje carrega assets por GUID).
+Na dúvida, a fonte da verdade é o código decompilado do jogo (`ilspycmd` no `RoR2.dll`).
+
 ## Ambiente
 
 | Item | Valor |
@@ -74,6 +96,8 @@ src/JetProject (C#) ─► dotnet build ─► deploy automático ─► perfil 
 | Jogo | `D:\SteamLibrary\steamapps\common\Risk of Rain 2` (Unity **2021.3.45f2**) |
 | Unity Editor | `D:\Unity\2021.3.45f1\Editor\Unity.exe` (mesma linha de versão do jogo) |
 | Blender | `D:\blender.exe` (5.1) |
+| ffmpeg | winget `Gyan.FFmpeg` (conversão de áudio) |
+| Wwise | `D:\Audiokinetic\Wwise2023.1.4.8496` (bankVersion 150, igual ao jogo) |
 | .NET | SDK 8, alvo `netstandard2.1` |
 | Mod loader | BepInExPack 5.4.2122, perfil r2modman `JetDev` |
 
@@ -82,7 +106,9 @@ src/JetProject (C#) ─► dotnet build ─► deploy automático ─► perfil 
 ```powershell
 dotnet build                     # compila e copia para o perfil JetDev
 ./tools/launch.ps1 -Build        # compila e abre o jogo modado
-./tools/setup-profile.ps1        # (re)cria o perfil de teste
+./tools/setup-profile.ps1        # (re)cria o perfil de teste (BepInEx + mods de profile-mods.txt)
+./tools/install-mods.ps1         # só (re)instala os mods do perfil
+./tools/audio/build-soundbank.ps1  # sons: wwise/sounds.json → soundbank Wwise → Resources/SoundBanks
 ./tools/blender/run.ps1 inspect_scene.py -Blend <arquivo.blend>
 ```
 
@@ -95,4 +121,10 @@ dotnet build                     # compila e copia para o perfil JetDev
 - [x] Repositório público: https://github.com/brunosaeger/projectjet
 - [x] Conceito do survivor: visual, emblema, passiva e as 4 skills (detalhes finos em design/kit.md)
 - [ ] Projeto Unity (unity/)
-- [ ] Primeiro survivor jogável com modelo provisório
+- [x] Protótipo do Jet compilando: passiva Jetpack completa + primária (modelo provisório do Commando)
+- [x] Protótipo carrega no jogo: Jet aparece na seleção e entra na partida (2026-11-19)
+- [ ] Feedback de gameplay do usuário (voo, combustível, primária) → ajustes em design/balance.md
+- [x] Primária e passiva aprovadas pelo usuário (2026-11-20)
+- [x] Secundária (UES Safe Travels Supplies): sinalizador em arco, mira no ar, poça de fogo, feixe e baús
+- [x] Sons próprios via Wwise (pipeline automatizado) e comandos de teste no chat (`.help`)
+- [ ] Utilitária, Especial

@@ -1,0 +1,15 @@
+{
+  "soundbank": "JetProject",
+  "sounds": [
+    {
+      "name": "Jet_HandCannon_Fire",
+      "source": "art/audio/source/normaldeagle.mp3",
+      "volumeDb": 3
+    },
+    {
+      "name": "Jet_HandCannon_FirePiercing",
+      "source": "art/audio/source/newdeagle.mp3",
+      "volumeDb": 3
+    }
+  ]
+}

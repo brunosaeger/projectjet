@@ -17,8 +17,20 @@ Resources/          dados copiados junto da DLL               → Resources/cont
 
 ## Dependências
 - Compilação: BepInEx.Core 5.4.21 (NuGet), assemblies do jogo (instalação local, RoR2 publicizado).
-- Runtime: apenas BepInExPack. **R2API ainda não é usado.** Adicione um submódulo do R2API somente quando resolver
-  um problema real (ex.: `R2API.Prefab` para clonar prefabs em rede) e documente aqui o motivo e a dependência no manifest.
+- Runtime: BepInExPack + os submódulos do R2API abaixo. Só adicione um submódulo do R2API quando ele resolver
+  um problema real, e registre aqui o motivo.
+
+| Dependência | Motivo |
+|---|---|
+| `R2API.Prefab` 1.1.1 | Clonar bodies com registro de rede (`InstantiateClone`), gerando um NetworkIdentity próprio |
+| `R2API.Sound` 1.0.3 | Registrar o soundbank Wwise do mod (`SoundAPI.SoundBanks.Add`) |
+| `RoR2BepInExPack` 1.50.0 | Constantes de GUID dos assets do jogo (`GameAssetPathsBetter`); base exigida pelo R2API |
+
+Ao adicionar: `PackageReference` no .csproj, `[BepInDependency]` no `JetPlugin`, linha em `tools/profile-mods.txt`.
+
+**Atenção:** pacotes do R2API trazem transitivamente `RiskOfRain2.GameLibs`, `UnityEngine.Modules` e `MMHOOK.RoR2`
+(versões antigas). Eles ficam excluídos (`ExcludeAssets="all"`) no .csproj para compilar contra a instalação local.
+Se um pacote novo trouxer outra versão deles, atualize as versões excluídas.
 
 ## Convenções
 - Namespace = caminho da pasta (`JetProject.Framework.Content`, `JetProject.Characters.<Nome>.Skills`…).

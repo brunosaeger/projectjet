@@ -36,4 +36,7 @@ New-Item -ItemType Directory -Force $profileDir | Out-Null
 Copy-Item (Join-Path $packRoot "*") $profileDir -Recurse -Force
 
 Remove-Item $temp -Recurse -Force
+Write-Host "BepInEx instalado em: $profileDir"
+
+& (Join-Path $PSScriptRoot "install-mods.ps1") -ProfileName $ProfileName -ProfilesRoot $ProfilesRoot
 Write-Host "Perfil pronto: $profileDir"

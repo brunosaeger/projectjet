@@ -2,17 +2,23 @@
 
 Conteúdo específico: os survivors do mod. ← [Plugin](../context.md) · [CONTEXT.md](../../../CONTEXT.md)
 
-## Estado
-Vazio. O primeiro survivor entra quando o conceito estiver fechado em [design/](../../../design/context.md).
+## Survivors
+| Survivor | Contexto |
+|---|---|
+| Jet | [Jet/context.md](Jet/context.md) |
 
-## Estrutura planejada por survivor
+Cada survivor implementa `ICharacter` (`Name` + `Register(ModContext)`) e entra na lista `All` do `CharactersModule`.
+
+## Estrutura padrão por survivor
 ```
 Characters/
   CharactersModule.cs          registra cada survivor no ContentRegistry
   <Nome>/
     context.md                 contexto do survivor (kit, decisões, pendências)
-    <Nome>Definition.cs        monta body, master, SurvivorDef (usa helpers do Framework)
+    <Nome>Character.cs         ICharacter: monta body, SurvivorDef (usa helpers do Framework)
     <Nome>Config.cs            números de balanceamento (dano, cooldown) em um só lugar
+    <Nome>Tokens.cs            constantes de tokens de idioma
+    <Nome>StateMachines.cs     nomes das EntityStateMachines
     Skills/
       <Nome>Skills.cs          SkillDefs e SkillFamilies
     States/                    EntityStates, um arquivo por estado

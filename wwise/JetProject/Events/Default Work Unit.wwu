@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AA72603E-7EBE-4E0D-A946-38D15E1A2269}" SchemaVersion="119">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{AA72603E-7EBE-4E0D-A946-38D15E1A2269}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Jet_HandCannon_Fire" ID="{BC8CB7F3-8757-4E11-8721-AE20A291B5C5}">
+					<ChildrenList>
+						<Action Name="" ID="{4032F8F0-6148-42C2-A349-E942FDAE65CC}" ShortID="1071566036">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jet_HandCannon_Fire" ID="{E1CF8B91-237A-485E-9480-BB31557260AF}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_Jet_HandCannon_FirePiercing" ID="{85D74463-3263-4416-BD45-C5A79456C4EA}">
+					<ChildrenList>
+						<Action Name="" ID="{D7E1E40D-9830-4903-A24A-B7D34B419C8F}" ShortID="827037240">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Jet_HandCannon_FirePiercing" ID="{25517222-3678-4A09-A1E1-2F3ABB2ABD45}" WorkUnitID="{D7ED64DB-B514-4B3D-AB4D-350510361762}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
